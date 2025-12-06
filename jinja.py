@@ -1,6 +1,14 @@
 ## Building url dynamically 
 ## variable rule 
 ## Jinja 2 template engine 
+## jinja2 Template engine is used by flask to render templates
+'''
+{{. .. }} -> expression to print to the template output
+{% .. %} -> conditions   statements like for, if, etc
+{# .. #} -> comments
+{% extends "base.html" %} -> to inherit a base template 
+'''
+
 from flask import Flask, render_template, request
 
 """
@@ -8,7 +16,7 @@ It creates an instance of the flask class
 which will be WSGI (Web server gateway interface) application.
 """
 ## WSGI Application
-app = Flask(__name__)
+app = Flask(__name__, template_folder="Templates")
 
 @app.route("/")
 def Welcome():
@@ -36,8 +44,11 @@ def sub():
 #     return f"the score is {score}"
 ## Variable rules
 @app.route("/success/<int:score>")
+@app.route("/successres/<int:score>")
 def success(score):
-    return "the marks you got is " + str(score)
+    res = "Pass" if score >= 50 else "Fail"
+    exp = {"result": res, "score": score}
+    return render_template("result1.html", exp=exp)
 
 if __name__ == "__main__":
     app.run(debug=True)
