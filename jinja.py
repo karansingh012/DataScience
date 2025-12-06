@@ -30,5 +30,14 @@ def sub():
         return f"Hello {name}!"
     return render_template("form.html")
 
+# ## Variable rules
+# @app.route("/success/<score>")
+# def success(score):
+#     return f"the score is {score}"
+## Variable rules
+@app.route("/success/<int:score>")
+def success(score):
+    return "the marks you got is " + str(score)
+
 if __name__ == "__main__":
     app.run(debug=True)

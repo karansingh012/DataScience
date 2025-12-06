@@ -1,1 +1,0 @@
-for example understanding exception.error
