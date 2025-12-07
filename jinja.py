@@ -49,6 +49,11 @@ def success(score):
     res = "Pass" if score >= 50 else "Fail"
     exp = {"result": res, "score": score}
     return render_template("result1.html", exp=exp)
+## If condition in jinja template
+@app.route("/successif/<int:score>")
+def success_if(score):
+    return render_template("result2.html", results=score)
 
+ 
 if __name__ == "__main__":
     app.run(debug=True)

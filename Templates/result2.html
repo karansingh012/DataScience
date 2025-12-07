@@ -1,0 +1,7 @@
+<h1>Based on the marks you have {{ results }}</h1>
+
+{% if results >= 50 %}
+    <h2>Congratulations! You have passed the exam with marks {{ results }}.</h2>
+{% else %}
+    <h2>Unfortunately, you have not passed with marks {{ results }}. Better luck next time!</h2>
+{% endif %}
