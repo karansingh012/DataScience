@@ -53,7 +53,17 @@ def success(score):
 @app.route("/successif/<int:score>")
 def success_if(score):
     return render_template("result2.html", results=score)
-
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if username == 'admin' and password == 'password':
+            return "Login Successful!"
+        else:
+            return "Invalid Credentials. Please try again."
+    return render_template("login.html")
+# run the application
  
 if __name__ == "__main__":
     app.run(debug=True)
