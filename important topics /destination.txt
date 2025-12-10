@@ -1,0 +1,6 @@
+Hello world 
+karan is my name
+append operation taking place!
+first line
+second line 
+third line 
