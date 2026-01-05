@@ -2,3 +2,4 @@ HEllo world
 THis is a new line
 I am appending this line
 This is another line appended
+This line is added in r+ mode.
